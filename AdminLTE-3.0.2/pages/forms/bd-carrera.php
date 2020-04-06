@@ -144,20 +144,21 @@ include ('conexionprueba.php');
                   <th>NOMBRE</th></tr> </thead>
                <!-- / consulta que muestra los datos de alumnos en la tabla-->
                     <?php 
-                      if(mysqli_num_rows($sql) == 0){
-                        echo '<tr><td colspan="8">No hay datos.</td></tr>';
-                          }else{
-                            $clave = 1;
-                               while($row = mysqli_fetch_assoc($sql)){
-                                    echo ' 
-                                     <tr> 
-                                       <td>'.$clave.'</td>
-                                <td>'.$row['carrera'].'</td>
-                                <td><a href="profile.php?nik='.$row['carrera'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['carrera'].'</a></td>
-                             <td>';
-                                $clave++;
-                 }
-                    }
+                                       $sql = ("SELECT * FROM datos2"); 
+                                       $query = $connect -> prepare($sql); 
+                                       $query -> execute(); 
+                                       $results = $query -> fetchAll(PDO::FETCH_OBJ); 
+                                    
+                   if($query -> rowCount() > 0)   { 
+                   foreach($results as $result) { 
+                   echo "<tr>
+                   <td>".$result -> clave."</td>
+                   <td>".$result -> carrera."</td>
+                   
+                   </tr>";
+                   
+                      }
+                                    }
                          ?>
                 
               </table>
