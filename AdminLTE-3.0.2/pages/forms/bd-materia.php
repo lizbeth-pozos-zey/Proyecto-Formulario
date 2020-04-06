@@ -169,6 +169,10 @@ echo "<tr>
                          ?>
                 
               </table>
+              <center>
+                  <a href="" class="btn btn-primary">Editar</a>  
+                  <a href="" class="btn btn-primary">Eliminar</a> 
+              </center>
             </div>
             <!-- /.card-body -->
           </div>
