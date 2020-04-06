@@ -1,5 +1,6 @@
-
-
+<?php 
+  include('conexionprueba.php');
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -99,9 +100,6 @@
       </li>
     </ul>
   </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
@@ -113,82 +111,61 @@
     </a>
 
     <!-- Sidebar -->
-    <div class="sidebar">
-      
-
-     
-        
-     
+    <div class="sidebar">   
     </div>
-    <!-- /.sidebar -->
   </aside>
-
-  
     </section>
-
-   
-            <!-- /.card-body -->
           </div>
-          <!-- /.card -->
-
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Datos de alumnos </h3>
+              <h3 class="card-title">Captura de Maestros</h3>
             </div>
-            <!-- /.card-header -->
+ <!--Se hace la consulta a la bd para eliminar datos de la tabla (falta agregar los botones/opciones de eliminar y modificar)-->
+                  <?php 
+                  if(isset($_GET['aksi']) == 'delete'){
+                         $nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+                         $cek = mysqli_query($con, "SELECT * FROM datos4 WHERE matricula='$nik'");
+                     if(mysqli_num_rows($cek) == 0){
+                             echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
+                                 }else{
+                        $delete = mysqli_query($con, "DELETE FROM datos4 WHERE matricula='$nik'");
+                          if($delete){
+                              echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
+                                          }else{
+                               echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
+          }    }   }
+                   ?>
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>MATRICULA</th>
+                  <th>N° DE EMPLEADO</th>
                   <th>NOMBRE</th>
                   <th>CORREO</th>
                   <th>TELEFONO</th>
-
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                  <td>1930309</td>
-                  <td>Adriana Gutierrez</td>
-                  <td>1930307@upv.edu.mx</td>
-                  <td>834-56-92-788</td>
-                  
-                
-                
-                
-                  <tr>
-                 <td>1930308</td>
-                  <td>Agustín Martinez</td>
-                  <td>1930308@upv.edu.mx</td>
-                  <td>834-89-92-478</td> 
-                </tr>
-
-              
-               
-                <tr>
-                 <td>        </td>
-                  <td>       </td>
-                  <td>       </td>
-                  <td>         </td> 
-                </tr>
-               
-                <tr>
-                 <td>        </td>
-                  <td>       </td>
-                  <td>       </td>
-                  <td>         </td> 
-                </tr>
+                 <?php 
+                      if(mysqli_num_rows($sql) == 0){
+                        echo '<tr><td colspan="8">No hay datos.</td></tr>';
+                          }else{
+                            $matricula = 1;
+                               while($row = mysqli_fetch_assoc($sql)){
+                                    echo ' 
+                                     <tr> 
+                                       <td>'.$matricula.'</td>
+                                <td>'.$row['nombre'].'</td>
+                                <td><a href="profile.php?nik='.$row['nombre'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['nombre'].'</a></td>
+                            <td>'.$row['correo'].'</td>
+                            <td>'.$row['telefono'].'</td>
+                             <td>';
+                                $matricula++;
+                 }
+                    }
+                         ?>
 
 
-                 <tr>
-                 <td>        </td>
-                  <td>       </td>
-                  <td>       </td>
-                  <td>         </td> 
-                </tr>
 
-                </tbody>
                 
               </table>
             </div>

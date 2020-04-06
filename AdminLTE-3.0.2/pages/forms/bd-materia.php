@@ -1,11 +1,12 @@
-
-
-<!DOCTYPE html>
+{<?php 
+include ('conexionprueba.php');
+ ?>
+  <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Alumnos</title>
+  <title>MATERIAS</title>
   <!-- Tell the browser to be responsive to screen width -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -99,11 +100,7 @@
       </li>
     </ul>
   </nav>
-  <!-- /.navbar -->
-
-  <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
-    <!-- Brand Logo -->
     <a href="../../index3.html" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png"
            alt="AdminLTE Logo"
@@ -111,85 +108,54 @@
            style="opacity: .8">
       <span class="brand-text font-weight-light">Inicio</span>
     </a>
-
-    <!-- Sidebar -->
     <div class="sidebar">
-      
-
-     
-        
-     
     </div>
-    <!-- /.sidebar -->
-  </aside>
-
-  
-    </section>
-
-   
-            <!-- /.card-body -->
+  </aside></section>
           </div>
-          <!-- /.card -->
-
           <div class="card">
             <div class="card-header">
-              <h3 class="card-title">Datos de alumnos </h3>
+              <h3 class="card-title">CAPTURA DE MATERIAS </h3>
             </div>
-            <!-- /.card-header -->
+           <!--Se hace la consulta a la bd para eliminar datos de la tabla (falta agregar los botones/opciones de eliminar y modificar)-->
+                  <?php 
+                  if(isset($_GET['aksi']) == 'delete'){
+                         $nik = mysqli_real_escape_string($con,(strip_tags($_GET["nik"],ENT_QUOTES)));
+                         $cek = mysqli_query($con, "SELECT * FROM datos5 WHERE clave='$nik'");
+                     if(mysqli_num_rows($cek) == 0){
+                             echo '<div class="alert alert-info alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> No se encontraron datos.</div>';
+                                 }else{
+                             $delete = mysqli_query($con, "DELETE FROM datos5 WHERE clave='$nik'");
+                          if($delete){
+                              echo '<div class="alert alert-success alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Datos eliminado correctamente.</div>';
+                                          }else{
+                               echo '<div class="alert alert-danger alert-dismissable"><button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button> Error, no se pudo eliminar los datos.</div>';
+          }    }   }
+                   ?>
             <div class="card-body">
               <table id="example1" class="table table-bordered table-striped">
                 <thead>
                 <tr>
-                  <th>MATRICULA</th>
+                  <th>CLAVE DE MATERIA</th>
                   <th>NOMBRE</th>
-                  <th>CORREO</th>
-                  <th>TELEFONO</th>
-
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                  <td>1930309</td>
-                  <td>Adriana Gutierrez</td>
-                  <td>1930307@upv.edu.mx</td>
-                  <td>834-56-92-788</td>
-                  
-                
-                
-                
-                  <tr>
-                 <td>1930308</td>
-                  <td>Agustín Martinez</td>
-                  <td>1930308@upv.edu.mx</td>
-                  <td>834-89-92-478</td> 
-                </tr>
-
-              
-               
-                <tr>
-                 <td>        </td>
-                  <td>       </td>
-                  <td>       </td>
-                  <td>         </td> 
-                </tr>
-               
-                <tr>
-                 <td>        </td>
-                  <td>       </td>
-                  <td>       </td>
-                  <td>         </td> 
-                </tr>
-
-
-                 <tr>
-                 <td>        </td>
-                  <td>       </td>
-                  <td>       </td>
-                  <td>         </td> 
-                </tr>
-
-                </tbody>
-                
+                 <!-- / consulta que muestra los datos de alumnos en la tabla-->
+                    <?php 
+                      if(mysqli_num_rows($sql) == 0){
+                        echo '<tr><td colspan="8">No hay datos.</td></tr>';
+                          }else{
+                            $clave = 1;
+                               while($row = mysqli_fetch_assoc($sql)){
+                                    echo ' 
+                                     <tr> 
+                                       <td>'.$clave.'</td>
+                                <td>'.$row['nombre'].'</td>
+                                <td><a href="profile.php?nik='.$row['nombre'].'"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> '.$row['nombre'].'</a></td>
+                             <td>';
+                                $clave++;
+                 }
+                    }
+                         ?>
               </table>
             </div>
             <!-- /.card-body -->
