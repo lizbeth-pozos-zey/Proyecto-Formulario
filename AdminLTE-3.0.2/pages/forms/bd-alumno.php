@@ -98,6 +98,7 @@
                   <th>NOMBRE</th>
                   <th>CORREO</th>
                   <th>TELEFONO</th>
+                   <th>ACCIONES</th>
                 </tr></thead>
                   <!-- / consulta que muestra los datos de alumnos en la tabla-->
                     <?php 
@@ -113,7 +114,8 @@
                            <td>".$result -> nombre."</td>
                            <td>".$result -> correo."</td>
                            <td>".$result -> telefono."</td>
-                         
+                          <td><a href="edit/eliminar-alumno.php" class="btn btn-primary">Eliminar</a>       
+                              <a href="edit/modif-alumn.php" class="btn btn-primary">Editar</a></td> 
                            </tr>";
                            
                               }
@@ -121,8 +123,7 @@
                          ?>
     </table>
     <center>
-    <a href="" class="btn btn-primary">Editar</a>  
-    <a href="" class="btn btn-primary">Eliminar</a> 
+    
 </center>
  </div>
     </div>
