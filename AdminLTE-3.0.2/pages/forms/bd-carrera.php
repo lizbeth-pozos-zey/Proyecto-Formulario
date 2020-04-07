@@ -105,7 +105,7 @@ include ('conexionprueba.php');
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
+    <a href="../../index.html" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
@@ -156,9 +156,7 @@ include ('conexionprueba.php');
                    echo "<tr>
                    <td>".$result -> clave."</td>
                    <td>".$result -> carrera."</td>
-                   <td><a href="edit/eliminar-carrera.php" class="btn btn-primary">Eliminar</a>       
-                              <a href="edit/modif-carrera.php" class="btn btn-primary">Editar</a></td> 
-                           
+                   <td>". '<a href= "edit/eliminar-grupo.php"  class= "btn btn-primary" >Eliminar </a>'. '<a href="edit/modif-carrera.php" class="btn btn-primary">Editar</a>'."</td> 
                    </tr>";
                    
                       }

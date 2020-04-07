@@ -59,7 +59,7 @@
 
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="../../index3.html" class="brand-link">
+    <a href="../../index.html" class="brand-link">
       <img src="../../dist/img/AdminLTELogo.png"
            alt="AdminLTE Logo"
            class="brand-image img-circle elevation-3"
@@ -114,17 +114,14 @@
                            <td>".$result -> nombre."</td>
                            <td>".$result -> correo."</td>
                            <td>".$result -> telefono."</td>
-                          <td><a href="edit/eliminar-alumno.php" class="btn btn-primary">Eliminar</a>       
-                              <a href="edit/modif-alumn.php" class="btn btn-primary">Editar</a></td> 
+                           <td>". '<a href= "edit/eliminar-alumnos.php"  class= "btn btn-primary" >Eliminar </a>'. '<a href="edit/modif-alumnos.php" class="btn btn-primary">Editar</a>'."</td> 
                            </tr>";
                            
                               }
                                             }
                          ?>
     </table>
-    <center>
-    
-</center>
+ 
  </div>
     </div>
                </div>
