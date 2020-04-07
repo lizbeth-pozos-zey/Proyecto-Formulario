@@ -1,16 +1,16 @@
 <?php
-	include "conexion.php";
+	include "conexionprueba.php";
 
-	EliminarProducto($_GET['no']);
+	EliminarGrupo($_GET['grupo']);
 
-	function EliminarProducto($no)
+	function EliminarGrupo($grupo)
 	{
-		$sentencia="DELETE FROM productos WHERE no='".$no."' ";
+		$sentencia="DELETE FROM datos3 WHERE grupo ='".$grupo."' ";
 		mysql_query($sentencia) or die (mysql_error());
 	}
 ?>
 
 <script type="text/javascript">
-	alert("Producto Eliminado exitosamente");
-	window.location.href='index.php';
+	alert("Dato Eliminado exitosamente");
+	window.location.href='bd-grupo.php';
 </script>

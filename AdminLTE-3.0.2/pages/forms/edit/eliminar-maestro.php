@@ -1,16 +1,16 @@
 <?php
-	include "conexion.php";
+	include "conexionprueba.php";
 
-	EliminarProducto($_GET['no']);
+	EliminarMaestro($_GET['matricula']);
 
-	function EliminarProducto($no)
+	function EliminarMaestro($matricula)
 	{
-		$sentencia="DELETE FROM productos WHERE no='".$no."' ";
+		$sentencia="DELETE FROM datos4 WHERE matricula='".$matricula."' ";
 		mysql_query($sentencia) or die (mysql_error());
 	}
 ?>
 
 <script type="text/javascript">
-	alert("Producto Eliminado exitosamente");
-	window.location.href='index.php';
+	alert("Dato Eliminado exitosamente");
+	window.location.href='bd-maestro.php';
 </script>

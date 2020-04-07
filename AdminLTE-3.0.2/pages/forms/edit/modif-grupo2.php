@@ -1,16 +1,16 @@
 <?php
-	include 'conexion.php';
+	include 'conexionprueba.php';
 
-	ModificarProducto($_POST['id_producto'], $_POST['producto'], $_POST['descripcion'], $_POST['no']);
+	ModificarProducto($_POST['grupo'], $_POST['nombre'],);
 
-	function ModificarProducto($id_prod, $nom, $descrip, $no)
+	function ModificarGrupo($grupo, $nombre )
 	{
-		$sentencia="UPDATE productos SET id_producto='".$id_prod."', nombre= '".$nom."', descripcion='".$descrip."' WHERE no='".$no."' ";
+		$sentencia="UPDATE datos3 SET grupo='".$grupo."', nombre= '".$nombre."' WHERE grupo='".$grupo."' ";
 		mysql_query($sentencia) or die (mysql_error());
 	}
 ?>
 
 <script type="text/javascript">
-	alert("Producto Modificado exitosamente");
-	window.location.href='index.php';
+	alert("Dato Modificado exitosamente");
+	window.location.href='bd-grupo.php';
 </script>

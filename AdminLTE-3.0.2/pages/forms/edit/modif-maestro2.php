@@ -1,16 +1,16 @@
 <?php
-	include 'conexion.php';
+	include 'conexionprueba.php';
 
-	ModificarProducto($_POST['id_producto'], $_POST['producto'], $_POST['descripcion'], $_POST['no']);
+	ModificarMaestro($_POST['matricula'], $_POST['nombre'], $_POST['correo'], $_POST['telefono']);
 
-	function ModificarProducto($id_prod, $nom, $descrip, $no)
+	function ModificarMaestro($matricula, $nombre, $correo, $telefono)
 	{
-		$sentencia="UPDATE productos SET id_producto='".$id_prod."', nombre= '".$nom."', descripcion='".$descrip."' WHERE no='".$no."' ";
+		$sentencia="UPDATE datos4 SET matricula='".$matricula."', nombre= '".$nombre."', correo='".$correo."', telefono='".$telefono."' WHERE matricula='".$matricula."' ";
 		mysql_query($sentencia) or die (mysql_error());
 	}
 ?>
 
 <script type="text/javascript">
-	alert("Producto Modificado exitosamente");
-	window.location.href='index.php';
+	alert("Dato Modificado exitosamente");
+	window.location.href='bd-maestro.php';
 </script>

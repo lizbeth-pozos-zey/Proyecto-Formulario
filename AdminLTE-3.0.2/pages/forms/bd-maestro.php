@@ -143,6 +143,7 @@
                   <th>NOMBRE</th>
                   <th>CORREO</th>
                   <th>TELEFONO</th>
+                  <th>OPCIONES</th>
                 </tr>
                 </thead>
                  <?php 
@@ -158,7 +159,8 @@
                   <td>".$result -> nombre."</td>
                   <td>".$result -> correo."</td>
                   <td>".$result -> telefono."</td>
-                
+                 <td><a href="edit/eliminar-maestro.php" class="btn btn-primary">Eliminar</a>       
+                              <a href="edit/modif-maestro.php" class="btn btn-primary">Editar</a></td> 
                   </tr>";
                   
                      }
@@ -169,10 +171,6 @@
 
                 
               </table>
-              <center>
-            <a href="" class="btn btn-primary">Editar</a>  
-            <a href="" class="btn btn-primary">Eliminar</a> 
-</center>
             </div>
             <!-- /.card-body -->
           </div>

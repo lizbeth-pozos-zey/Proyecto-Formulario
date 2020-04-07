@@ -1,16 +1,16 @@
 <?php
-	include 'conexion.php';
+	include 'conexionprueba.php';
 
-	ModificarProducto($_POST['id_producto'], $_POST['producto'], $_POST['descripcion'], $_POST['no']);
+	ModificarProducto($_POST['clave'], $_POST['nombre'], );
 
-	function ModificarProducto($id_prod, $nom, $descrip, $no)
+	function ModificarCarrera($clave, $nombre )
 	{
-		$sentencia="UPDATE productos SET id_producto='".$id_prod."', nombre= '".$nom."', descripcion='".$descrip."' WHERE no='".$no."' ";
+		$sentencia="UPDATE datos2 SET clave='".$clave."', nombre= '".$nombre."',  WHERE clave='".$clave."' ";
 		mysql_query($sentencia) or die (mysql_error());
 	}
 ?>
 
 <script type="text/javascript">
-	alert("Producto Modificado exitosamente");
+	alert("Dato Modificado exitosamente");
 	window.location.href='index.php';
 </script>

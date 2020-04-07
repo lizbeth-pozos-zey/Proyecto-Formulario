@@ -145,6 +145,7 @@ include ('conexionprueba.php');
                 <tr>
                   <th>N°GRUPO</th>
                   <th>NOMBRE</th>
+                  <th>OPCIONES</th>
                 </tr>
                 </thead>
 
@@ -160,7 +161,8 @@ foreach($results as $result) {
 echo "<tr>
 <td>".$result -> grupo."</td>
 <td>".$result -> nombre."</td>
-
+<td><a href="edit/eliminar-grupo.php" class="btn btn-primary">Eliminar</a>       
+ <a href="edit/modif-grupo.php" class="btn btn-primary">Editar</a></td> 
 </tr>";
 
    }
@@ -169,10 +171,6 @@ echo "<tr>
                          ?>
                 
               </table>
-              <center>
-    <a href="" class="btn btn-primary">Editar</a>  
-    <a href="" class="btn btn-primary">Eliminar</a> 
-             </center>
             </div>
             <!-- /.card-body -->
           </div>

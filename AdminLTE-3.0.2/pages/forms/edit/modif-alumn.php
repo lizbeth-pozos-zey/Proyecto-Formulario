@@ -50,10 +50,10 @@
   		<input type="text" id="nombre" name="nombre" value="<?php echo $consulta[1] ?>"><br>
   		
   		<label>Correo: </label>
-  		<input type="text" id="correo" name="correo" value="<?php echo $consulta[1] ?>"><br>
+  		<input type="text" id="correo" name="correo" value="<?php echo $consulta[2] ?>"><br>
 
       <label>Telefono: </label>
-      <input type="text" id="telefono" name="telefono" value="<?php echo $consulta[1] ?>"><br>
+      <input type="text" id="telefono" name="telefono" value="<?php echo $consulta[3] ?>"><br>
   		
   		<br>
   		<button type="submit" class="btn btn-success">Guardar</button>

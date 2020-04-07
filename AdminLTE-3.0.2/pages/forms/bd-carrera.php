@@ -141,7 +141,9 @@ include ('conexionprueba.php');
                 <thead>
                 <tr>
                   <th>CLAVE DE CARRERA</th>
-                  <th>NOMBRE</th></tr> </thead>
+                  <th>NOMBRE</th>
+                  <th>OPCIONES</th>
+                </tr> </thead>
                <!-- / consulta que muestra los datos de alumnos en la tabla-->
                     <?php 
                                        $sql = ("SELECT * FROM datos2"); 
@@ -154,7 +156,9 @@ include ('conexionprueba.php');
                    echo "<tr>
                    <td>".$result -> clave."</td>
                    <td>".$result -> carrera."</td>
-                   
+                   <td><a href="edit/eliminar-carrera.php" class="btn btn-primary">Eliminar</a>       
+                              <a href="edit/modif-carrera.php" class="btn btn-primary">Editar</a></td> 
+                           
                    </tr>";
                    
                       }
@@ -163,8 +167,7 @@ include ('conexionprueba.php');
                 
               </table>
               <center>
-                   <a href="" class="btn btn-primary">Editar</a>  
-                  <a href="" class="btn btn-primary">Eliminar</a> 
+                  
            </center>
             </div>
             <!-- /.card-body -->
